@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Collaborative File Editor</title>
+  </head>
+  <body>
+    <h1>Collaborative File Editor</h1>
+    <textarea id="file-content" rows="10" cols="50"></textarea><br /><br />
+    <button id="save-file">Save File to GitHub</button>
+
+    <script>
+      
+      document.addEventListener("DOMContentLoaded", async () => {
+        const response = await fetch("/load-file");
+        const data = await response.json();
+        document.getElementById("file-content").value = data.content;
+      });
+    </script>
+  </body>
+</html>
